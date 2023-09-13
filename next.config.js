@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    formats: ["image/avif", "image/webp"],
+    domains: ["themoviedb.gameszonehub.workers.dev"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
