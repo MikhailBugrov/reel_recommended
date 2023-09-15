@@ -15,3 +15,12 @@ export async function getMovieId(id: string) {
   const data = await response.json();
   return data;
 }
+
+export async function getSearch(query: string | null, page: number) {
+  const response = await fetch(`/api/search?query=${query}&page=${page}`);
+  if (!response.ok) {
+    throw new Error("Unable to fetch movies.");
+  }
+  const data = await response.json();
+  return data;
+}

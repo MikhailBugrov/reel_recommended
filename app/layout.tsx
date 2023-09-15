@@ -1,11 +1,14 @@
-import "./globals.css";
+import "./globals.scss";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import MyProvider from "../components/Provider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Reel Recommended",
@@ -22,11 +25,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <MyProvider>
-          <>
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </>
+          <Header />
+          <main>{children}</main>
+          <Footer />
         </MyProvider>
       </body>
     </html>

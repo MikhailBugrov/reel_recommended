@@ -1,0 +1,30 @@
+.movieCard {
+  border: 2px solid var(--color-primary-main);
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s;
+  background-color: var(--color-background-paper);
+  cursor: pointer;
+  width: 300px;
+
+  &:hover {
+    transform: scale(1.05);
+    border-color: var(--color-primary-contrast);
+  }
+
+  h2 {
+    margin: 8px 0;
+    font-size: 1.5rem;
+  }
+
+  img {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+  }
+
+  .info {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: var(--color-secondary-main);
+  }
+}

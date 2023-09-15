@@ -21,7 +21,6 @@ const Detailed = ({ params: { id } }: Props) => {
 
   return (
     <div>
-      -----------
       <h1>Detailed {movie?.title}</h1>
       <Image
         src={`${imageUrl}${movie?.poster_path}`}
@@ -29,19 +28,8 @@ const Detailed = ({ params: { id } }: Props) => {
         height={300}
         alt={movie?.title}
       />
-      -----------
     </div>
   );
 };
 
 export default Detailed;
-
-// import { Metadata } from "next";
-// export async function generateMetadata({
-//   params: { id },
-// }: Props): Promise<Metadata> {
-//   const movieData = await getMovieId(id);
-//   return {
-//     title: movieData.movie?.title,
-//   };
-// }

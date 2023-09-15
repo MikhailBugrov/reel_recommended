@@ -1,3 +1,6 @@
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import styles from "./pagination.module.scss";
+
 type PaginationProps = {
   currentPage: number;
   totalPages: number;
@@ -31,7 +34,6 @@ const Pagination: React.FC<PaginationProps> = ({
         );
       }
     } else {
-      // Отображаем текущую страницу и 4 ближайшие страницы с многоточием
       let startPage = currentPage - Math.floor(visiblePages / 2);
       let endPage = currentPage + Math.floor(visiblePages / 2);
 
@@ -84,13 +86,13 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div>
+    <div className={styles.pagination_container}>
       <button onClick={onPreviousPage} disabled={currentPage === 1}>
-        &#9664;
+        <BsChevronLeft />
       </button>
       {renderPageNumbers()}
       <button onClick={onNextPage} disabled={currentPage === totalPages}>
-        &#9654;
+        <BsChevronRight />
       </button>
     </div>
   );

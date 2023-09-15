@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Movies | Reel Recommended",
+  title: "Search | Reel Recommended",
 };
 
 export default function MoviesLayout({
@@ -9,5 +9,5 @@ export default function MoviesLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <div>{children}</div>;
 }

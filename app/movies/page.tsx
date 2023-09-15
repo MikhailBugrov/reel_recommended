@@ -3,49 +3,42 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getMovies } from "@/services";
-import Image from "next/image";
 import Pagination from "@/components/Pagination";
-import { imageUrl } from "@/utils/constants";
-import Link from "next/link";
+import MovieCard from "@/components/MovieCard";
+import styles from "@/components/StylesPageWrapper/styles.module.scss";
 
-const AllMovies = () => {
+const MoviesList = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const {
     data: movies,
     error,
-    isLoading,
     isFetching,
   } = useQuery({
     queryKey: ["movies", currentPage],
     queryFn: () => getMovies(currentPage),
   });
-  console.log(movies);
 
   if (error) return <div>Error loading movies</div>;
-  if (isLoading) return <div>Loading...</div>;
+  if (isFetching) return <div>Loading...</div>;
 
   return (
-    <div>
-      <h1>All Movies</h1>
+    <div className={styles.pageWrapper}>
+      <h2>All Movies</h2>
 
-      <div>
-        <ul>
-          {movies?.results.map((movie: any) => (
-            <li key={movie.id}>
-              <Link href={`/movies/${movie.id}`}>
-                {movie.title}
-                <Image
-                  src={`${imageUrl}${movie.poster_path}`}
-                  width={200}
-                  height={300}
-                  alt={movie.title}
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <div className={styles.movieGrid}>
+        {movies?.results.map((movie: any) => (
+          <MovieCard
+            key={movie.id}
+            id={movie.id}
+            title={movie.title}
+            releaseDate={movie.release_date}
+            rating={movie.vote_average}
+            posterUrl={movie.poster_path}
+          />
+        ))}
       </div>
+
       <Pagination
         currentPage={currentPage}
         totalPages={movies?.total_pages}
@@ -57,4 +50,4 @@ const AllMovies = () => {
   );
 };
 
-export default AllMovies;
+export default MoviesList;
