@@ -1,9 +1,5 @@
-const Loading = () => {
-  return (
-    <>
-      <div>Loading...</div>
-    </>
-  );
-};
+import Loading from "@/components/Loading";
 
-export default Loading;
+const Loader = () => <Loading isLoading={true} />;
+
+export default Loader;

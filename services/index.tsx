@@ -1,4 +1,4 @@
-export async function getMovies(page: number) {
+export async function getMovies(page: number = 1) {
   const response = await fetch(`/api/movies?page=${page}`);
   if (!response.ok) {
     throw new Error("Unable to fetch movies.");
@@ -16,7 +16,7 @@ export async function getMovieId(id: string) {
   return data;
 }
 
-export async function getSearch(query: string | null, page: number) {
+export async function getSearch(query: string | null, page: number = 1) {
   const response = await fetch(`/api/search?query=${query}&page=${page}`);
   if (!response.ok) {
     throw new Error("Unable to fetch movies.");

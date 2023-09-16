@@ -36,9 +36,7 @@ const Header = () => {
       </Link>
       <SearchBar />
       <Link href="/favourites" passHref className={styles.header__link}>
-        {/* <span className={styles.star}> */}
         <BsBookmarkStarFill className={styles.star} />
-        {/* </span> */}
       </Link>
     </header>
   );

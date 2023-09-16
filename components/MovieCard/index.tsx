@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { imageUrl } from "@/utils/constants";
+import { posterImgUrl } from "@/utils/posterImgUrl";
 import Link from "next/link";
 import styles from "./card.module.scss";
 
@@ -22,12 +22,11 @@ const MovieCard: React.FC<MovieCardProps> = ({
     <div className={styles.movieCard}>
       <Link href={`/movies/${id}`}>
         <Image
-          src={`${imageUrl}${posterUrl}`}
+          src={posterImgUrl(posterUrl)}
           alt={`${title} poster`}
-          width={300}
-          height={400}
+          width={500}
+          height={750}
           layout="responsive"
-          objectFit="cover"
         />
 
         <h2>{title}</h2>

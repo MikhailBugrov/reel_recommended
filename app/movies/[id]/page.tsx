@@ -1,9 +1,12 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { getMovieId } from "@/services";
 import Image from "next/image";
-import { imageUrl } from "@/utils/constants";
+import { getMovieId } from "@/services";
+import { posterImgUrl } from "@/utils/posterImgUrl";
+import Loading from "@/components/Loading";
+import ErrorMessage from "@/components/ErrorMessage";
+import styles from "@/components/StylesPageWrapper/styles.module.scss";
 
 type Props = {
   params: {
@@ -12,22 +15,28 @@ type Props = {
 };
 
 const Detailed = ({ params: { id } }: Props) => {
-  const { data: movie } = useQuery({
+  const {
+    data: movie,
+    error,
+    isFetching,
+  } = useQuery({
     queryKey: ["movie"],
     queryFn: () => getMovieId(id),
   });
 
-  console.log(movie);
+  if (error) return <ErrorMessage />;
 
   return (
-    <div>
-      <h1>Detailed {movie?.title}</h1>
-      <Image
-        src={`${imageUrl}${movie?.poster_path}`}
-        width={200}
-        height={300}
-        alt={movie?.title}
-      />
+    <div className={styles.pageWrapper}>
+      <h2>Detailed {movie?.title}</h2>
+      <Loading isLoading={isFetching}>
+        <Image
+          src={posterImgUrl(movie?.poster_path)}
+          width={500}
+          height={750}
+          alt={movie?.title}
+        />
+      </Loading>
     </div>
   );
 };

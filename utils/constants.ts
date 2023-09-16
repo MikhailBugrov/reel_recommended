@@ -1,3 +1,2 @@
-const baseUrl = "https://themoviedb.gameszonehub.workers.dev/t/p/";
-const imageSize = "w500";
-export const imageUrl = `${baseUrl}${imageSize}`;
+export const BaseUrl = "https://image.tmdb.org/t/p/";
+export const ImagePosterSize = "w500";

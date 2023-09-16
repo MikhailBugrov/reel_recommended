@@ -18,6 +18,7 @@
   &__link {
     margin: 0 10px;
     text-decoration: none;
+    font-weight: bold;
     font-size: var(--font-size-large);
 
     &:hover {
@@ -49,7 +50,7 @@
 
     .hiSearchCircle {
       color: var(--color-primary-main);
-      font-size: 25px;
+      font-size: 28px;
       cursor: pointer;
       transition: color 0.3s ease;
       margin-left: -30px;

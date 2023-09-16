@@ -2,7 +2,7 @@
 const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
-    domains: ["themoviedb.gameszonehub.workers.dev"],
+    domains: ["image.tmdb.org"],
   },
 };
 
