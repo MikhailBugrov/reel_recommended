@@ -26,6 +26,7 @@ const MoviesList = () => {
   return (
     <div className={stylesPageWrapper.pageWrapper}>
       <h2>All Movies</h2>
+
       <Loading isLoading={isLoading}>
         {!movies?.results.length && (
           <p className={stylesPageWrapper.noMoviesFound}>No movies found</p>

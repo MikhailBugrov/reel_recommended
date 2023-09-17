@@ -1,7 +1,7 @@
 import "./globals.scss";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import MyProvider from "../components/Provider";
+import MyProvider from "@/redux/provider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 

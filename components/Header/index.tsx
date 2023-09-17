@@ -35,7 +35,7 @@ const Header = () => {
         Movies
       </Link>
       <SearchBar />
-      <Link href="/favourites" passHref className={header.header__link}>
+      <Link href="/favorites" passHref className={header.header__link}>
         <BsBookmarkStarFill className={header.star} />
       </Link>
     </header>

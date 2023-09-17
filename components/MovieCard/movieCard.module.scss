@@ -7,10 +7,16 @@
   cursor: pointer;
   width: 100%;
   height: 100%;
+  position: relative;
 
   &:hover {
     transform: scale(1.05);
     border-color: var(--color-primary-contrast);
+  }
+
+  .favorite {
+    position: absolute;
+    left: 0;
   }
 
   h2 {
