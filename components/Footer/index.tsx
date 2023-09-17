@@ -1,8 +1,8 @@
-import styles from "./footer.module.scss";
+import footer from "./footer.module.scss";
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
+    <footer className={footer.footer}>
       <h3>&copy; Reel Recommended</h3>
     </footer>
   );

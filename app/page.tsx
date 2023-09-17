@@ -2,10 +2,10 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { getMovies } from "@/services";
-import MovieSwiper from "@/components/MovieSwiper";
+import PopularMoviesSwiper from "@/components/PopularMoviesSwiper";
 import Loading from "@/components/Loading";
 import ErrorMessage from "@/components/ErrorMessage";
-import styles from "@/components/StylesPageWrapper/styles.module.scss";
+import stylesPageWrapper from "@/components/StylesPageWrapper/stylesPageWrapper.module.scss";
 
 const Home = () => {
   const {
@@ -20,10 +20,10 @@ const Home = () => {
   if (error) return <ErrorMessage />;
 
   return (
-    <div className={styles.pageWrapper}>
+    <div className={stylesPageWrapper.pageWrapper}>
       <h2>Popular Movies</h2>
       <Loading isLoading={isLoading}>
-        <MovieSwiper movies={movies?.results} />
+        <PopularMoviesSwiper movies={movies?.results} />
       </Loading>
     </div>
   );

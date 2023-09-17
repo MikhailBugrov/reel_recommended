@@ -1,5 +1,5 @@
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
-import styles from "./pagination.module.scss";
+import pagination from "./pagination.module.scss";
 
 type PaginationProps = {
   currentPage: number;
@@ -86,7 +86,7 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className={styles.pagination_container}>
+    <div className={pagination.pagination_container}>
       <button onClick={onPreviousPage} disabled={currentPage === 1}>
         <BsChevronLeft />
       </button>

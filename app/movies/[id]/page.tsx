@@ -1,12 +1,12 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import Image from "next/image";
 import { getMovieId } from "@/services";
-import { posterImgUrl } from "@/utils/posterImgUrl";
 import Loading from "@/components/Loading";
 import ErrorMessage from "@/components/ErrorMessage";
-import styles from "@/components/StylesPageWrapper/styles.module.scss";
+import ActorsSwiper from "@/components/CastSwiper";
+import DetailedMovie from "@/components/DetailedMovie";
+import stylesPageWrapper from "@/components/StylesPageWrapper/stylesPageWrapper.module.scss";
 
 type Props = {
   params: {
@@ -15,11 +15,7 @@ type Props = {
 };
 
 const Detailed = ({ params: { id } }: Props) => {
-  const {
-    data: movie,
-    error,
-    isFetching,
-  } = useQuery({
+  const { data, error, isFetching } = useQuery({
     queryKey: ["movie"],
     queryFn: () => getMovieId(id),
   });
@@ -27,15 +23,11 @@ const Detailed = ({ params: { id } }: Props) => {
   if (error) return <ErrorMessage />;
 
   return (
-    <div className={styles.pageWrapper}>
-      <h2>Detailed {movie?.title}</h2>
+    <div className={stylesPageWrapper.pageWrapper}>
       <Loading isLoading={isFetching}>
-        <Image
-          src={posterImgUrl(movie?.poster_path)}
-          width={500}
-          height={750}
-          alt={movie?.title}
-        />
+        <h2>{data?.movie.title}</h2>
+        <DetailedMovie movie={data?.movie} />
+        <ActorsSwiper actors={data?.actor.cast} />
       </Loading>
     </div>
   );

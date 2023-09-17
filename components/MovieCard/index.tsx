@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { posterImgUrl } from "@/utils/posterImgUrl";
 import Link from "next/link";
-import styles from "./card.module.scss";
+import movieCard from "./movieCard.module.scss";
 
 interface MovieCardProps {
   id: string;
@@ -19,7 +19,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
   posterUrl,
 }) => {
   return (
-    <div className={styles.movieCard}>
+    <div className={movieCard.movieCard}>
       <Link href={`/movies/${id}`}>
         <Image
           src={posterImgUrl(posterUrl)}
@@ -30,8 +30,8 @@ const MovieCard: React.FC<MovieCardProps> = ({
         />
 
         <h2>{title}</h2>
-        <p className={styles.info}>Release Date: {releaseDate}</p>
-        <p className={styles.info}>Rating: {rating}</p>
+        <p className={movieCard.info}>Release Date: {releaseDate}</p>
+        <p className={movieCard.info}>Rating: {rating}</p>
       </Link>
     </div>
   );

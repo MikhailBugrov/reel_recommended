@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import styles from "./header.module.scss";
+import header from "./header.module.scss";
 
 import { HiSearchCircle } from "react-icons/hi";
 
@@ -13,6 +13,7 @@ const SearchBar = () => {
   const handleSearch = () => {
     if (search.trim() !== "") {
       router.push(`/search?query=${search}`);
+      setSearch("");
     }
   };
 
@@ -23,7 +24,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className={styles.header__search}>
+    <div className={header.header__search}>
       <input
         type="text"
         placeholder="Movie search"
@@ -32,7 +33,7 @@ const SearchBar = () => {
         onKeyDown={handleKeyDown}
       />
       <HiSearchCircle
-        className={styles.hiSearchCircle}
+        className={header.hiSearchCircle}
         onClick={handleSearch}
       />
     </div>

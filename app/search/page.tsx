@@ -8,7 +8,7 @@ import Loading from "@/components/Loading";
 import Pagination from "@/components/Pagination";
 import MovieCard from "@/components/MovieCard";
 import ErrorMessage from "@/components/ErrorMessage";
-import styles from "@/components/StylesPageWrapper/styles.module.scss";
+import stylesPageWrapper from "@/components/StylesPageWrapper/stylesPageWrapper.module.scss";
 
 const SearchPage = () => {
   const searchParams = useSearchParams();
@@ -26,13 +26,13 @@ const SearchPage = () => {
   if (error) return <ErrorMessage />;
 
   return (
-    <div className={styles.pageWrapper}>
+    <div className={stylesPageWrapper.pageWrapper}>
       <h2>Search</h2>
       <Loading isLoading={isLoading}>
         {!movies?.results.length && (
-          <p className={styles.noMoviesFound}>No movies found</p>
+          <p className={stylesPageWrapper.noMoviesFound}>No movies found</p>
         )}
-        <div className={styles.movieGrid}>
+        <div className={stylesPageWrapper.movieGrid}>
           {movies?.results.map((movie: any) => (
             <MovieCard
               key={movie.id}

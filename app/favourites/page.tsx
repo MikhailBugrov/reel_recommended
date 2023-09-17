@@ -1,10 +1,10 @@
 "use client";
 
-import styles from "@/components/StylesPageWrapper/styles.module.scss";
+import stylesPageWrapper from "@/components/StylesPageWrapper/stylesPageWrapper.module.scss";
 
 const Favorites = () => {
   return (
-    <div className={styles.pageWrapper}>
+    <div className={stylesPageWrapper.pageWrapper}>
       <h2>Favorites</h2>
     </div>
   );

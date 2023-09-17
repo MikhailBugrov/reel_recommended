@@ -1,8 +1,8 @@
-import styles from "./errorMessage.module.scss";
+import errorMessage from "./errorMessage.module.scss";
 
 const ErrorMessage = () => {
   return (
-    <div className={styles.errorMessage}>
+    <div className={errorMessage.errorMessage}>
       <h4>Oops! There was a problem loading the movies.</h4>
       <p>
         Please try refreshing the page or come back later. <br />

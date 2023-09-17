@@ -5,12 +5,12 @@ import { posterImgUrl } from "@/utils/posterImgUrl";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/effect-coverflow";
-import styles from "./swiper.module.scss";
+import popularMoviesSwiper from "./popularMoviesSwiper.module.scss";
 
-const MovieSwiper = ({ movies }: any) => {
+const PopularMoviesSwiper = ({ movies }: any) => {
   return (
     <Swiper
-      className={styles.swiperWrapper}
+      className={popularMoviesSwiper.swiperWrapper}
       spaceBetween={-100}
       initialSlide={1}
       loop={true}
@@ -26,7 +26,10 @@ const MovieSwiper = ({ movies }: any) => {
       }}
     >
       {movies?.map((movie: any) => (
-        <SwiperSlide key={movie.id} className={styles.slideWrapper}>
+        <SwiperSlide
+          key={movie.id}
+          className={popularMoviesSwiper.slideWrapper}
+        >
           <Image
             src={posterImgUrl(movie.poster_path)}
             width={500}
@@ -35,7 +38,7 @@ const MovieSwiper = ({ movies }: any) => {
             priority
             layout="responsive"
           />
-          <div className={styles.additionalInfo}>
+          <div className={popularMoviesSwiper.additionalInfo}>
             <h3>{movie.title}</h3>
             <p>{movie.release_date}</p>
             <p>Rating: {movie.vote_average}</p>
@@ -46,4 +49,4 @@ const MovieSwiper = ({ movies }: any) => {
   );
 };
 
-export default MovieSwiper;
+export default PopularMoviesSwiper;
