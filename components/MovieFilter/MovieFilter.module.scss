@@ -1,0 +1,52 @@
+.toggleButton {
+  margin-top: 20px;
+  font-size: 21px;
+  cursor: pointer;
+  max-width: 100px;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-secondary-main);
+
+  &:hover {
+    color: var(--color-active);
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.resetButton {
+  padding: 8px 16px;
+  background-color: var(--color-background-paper);
+  border: 1px solid var(--color-secondary-main);
+  color: var(--color-secondary-main);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-medium);
+  cursor: pointer;
+  min-width: 120px;
+  font-weight: bold;
+
+  &:hover {
+    background-color: var(--color-active);
+    color: var(--color-background-paper);
+  }
+}
+
+.filtersContainer {
+  padding: 15px;
+  max-width: 450px;
+  background-color: var(--color-background-paper);
+  border: 1px solid var(--color-primary-main);
+  border-radius: var(--border-radius);
+
+  .filterSection {
+    margin-bottom: 16px;
+  }
+}
+
+.icon {
+  margin-right: 8px;
+}

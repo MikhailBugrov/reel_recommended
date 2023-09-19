@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import header from "./header.module.scss";
-
 import { HiSearchCircle } from "react-icons/hi";
+import stylesSearchBar from "./Header.module.scss";
 
 const SearchBar = () => {
   const [search, setSearch] = useState("");
@@ -24,7 +23,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className={header.header__search}>
+    <div className={stylesSearchBar.search}>
       <input
         type="text"
         placeholder="Movie search"
@@ -33,7 +32,7 @@ const SearchBar = () => {
         onKeyDown={handleKeyDown}
       />
       <HiSearchCircle
-        className={header.hiSearchCircle}
+        className={stylesSearchBar.iconSearch}
         onClick={handleSearch}
       />
     </div>

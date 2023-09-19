@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { BsBookmarkStarFill } from "react-icons/bs";
 import SearchBar from "./SearchBar";
-import header from "./header.module.scss";
+import stylesHeader from "./Header.module.scss";
 
 const Header = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -27,16 +27,18 @@ const Header = () => {
   }, [prevScrollPos]);
 
   return (
-    <header className={`${header.header} ${visible ? "" : header.hidden}`}>
-      <Link href="/" passHref className={header.header__link}>
+    <header
+      className={`${stylesHeader.header} ${visible ? "" : stylesHeader.hidden}`}
+    >
+      <Link href="/" passHref className={stylesHeader.link}>
         Home
       </Link>
-      <Link href="/movies" passHref className={header.header__link}>
+      <Link href="/movies" passHref className={stylesHeader.link}>
         Movies
       </Link>
       <SearchBar />
-      <Link href="/favorites" passHref className={header.header__link}>
-        <BsBookmarkStarFill className={header.star} />
+      <Link href="/favorites" passHref className={stylesHeader.link}>
+        <BsBookmarkStarFill className={stylesHeader.iconsBookmark} />
       </Link>
     </header>
   );

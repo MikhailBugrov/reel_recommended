@@ -1,14 +1,18 @@
 import Image from "next/image";
-import { posterImgUrl, backdropImgUrl } from "@/utils/posterImgUrl";
-import detailedStyles from "./detailedStyles.module.scss";
-
 import { useSelector, useDispatch } from "react-redux";
 import { addMovie, removeMovie } from "@/redux/features/favorites";
 import { RootState } from "@/redux/store";
 import { isMovieFavorite } from "@/redux/features/favorites/selector";
 import BookmarkIcon from "@/components/BookmarkIcon";
+import { posterImgUrl, backdropImgUrl } from "@/utils/posterImgUrl";
+import stylesDetailed from "./DetailedMovie.module.scss";
+import MovieTypes from "./types";
 
-const DetailedMovie = ({ movie }: any) => {
+interface DetailedMovieProps {
+  movie: MovieTypes;
+}
+
+const DetailedMovie: React.FC<DetailedMovieProps> = ({ movie }) => {
   const dispatch = useDispatch();
 
   const isFavorite = useSelector((state: RootState) =>
@@ -24,33 +28,33 @@ const DetailedMovie = ({ movie }: any) => {
   };
   return (
     <>
-      <div className={detailedStyles.movieDetails}>
-        <div className={detailedStyles.movieDetailsFavorites}>
+      <div className={stylesDetailed.wrapper}>
+        <div className={stylesDetailed.iconsPosition}>
           <BookmarkIcon
             isFavorite={isFavorite}
             onClick={handleToggleFavorite}
           />
         </div>
-        <div>
-          <Image
-            className={detailedStyles.backdrop}
-            src={backdropImgUrl(movie.backdrop_path || movie.poster_path)}
-            layout="fill"
-            objectFit="cover"
-            alt={movie.backdrop_path}
-          />
 
-          <Image
-            className={detailedStyles.posterWrapper}
-            src={posterImgUrl(movie.poster_path)}
-            width={300}
-            height={450}
-            alt={movie.title}
-          />
-        </div>
+        <Image
+          className={stylesDetailed.backdrop}
+          src={backdropImgUrl(movie.backdrop_path || movie.poster_path)}
+          width={1000}
+          height={450}
+          alt={movie.backdrop_path}
+          priority
+        />
 
-        <div className={detailedStyles.movieInfo}>
-          <p className={detailedStyles.overview}>{movie.overview}</p>
+        <Image
+          className={stylesDetailed.posterWrapper}
+          src={posterImgUrl(movie.poster_path)}
+          width={300}
+          height={450}
+          alt={movie.title}
+        />
+
+        <div className={stylesDetailed.info}>
+          <p className={stylesDetailed.overview}>{movie.overview}</p>
           <p>
             <strong>Release Date: </strong> {movie.release_date}
           </p>
@@ -59,12 +63,12 @@ const DetailedMovie = ({ movie }: any) => {
           </p>
           <p>
             <strong>Genres: </strong>
-            {movie.genres.map((genre: any) => genre.name).join(", ")}
+            {movie.genres.map((genre) => genre.name).join(", ")}
           </p>
           <p>
             <strong>Production Companies: </strong>
             {movie.production_companies
-              .map((company: any) => company.name)
+              .map((company) => company.name)
               .join(", ")}
           </p>
           <p>

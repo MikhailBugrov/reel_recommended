@@ -1,23 +1,22 @@
-.pageWrapper {
+.wrapper {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-
-  .noMoviesFound {
-    text-align: center;
-    margin-top: 30px;
-    font-weight: bold;
-  }
 }
 
-.movieGrid {
+.textBlock {
+  text-align: center;
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+.grid {
   margin: 20px 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
   justify-items: center;
-
-  .fullWidth {
+  .full {
     width: 100%;
   }
 }

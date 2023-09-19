@@ -5,40 +5,50 @@ import { posterImgUrl } from "@/utils/posterImgUrl";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/effect-coverflow";
-import popularMoviesSwiper from "./popularMoviesSwiper.module.scss";
+import stylesSwiper from "./PopularMoviesSwiper.module.scss";
 
-const PopularMoviesSwiper = ({ movies }: any) => {
+interface Movie {
+  id: number;
+  title: string;
+  poster_path: string;
+  release_date: string;
+  vote_average: number;
+}
+
+interface PopularMoviesSwiperProps {
+  movies: Movie[];
+}
+
+const PopularMoviesSwiper: React.FC<PopularMoviesSwiperProps> = ({
+  movies,
+}) => {
   return (
     <Swiper
-      className={popularMoviesSwiper.swiperWrapper}
+      className={stylesSwiper.swiperWrapper}
       spaceBetween={-100}
       initialSlide={1}
       loop={true}
-      slidesPerView={5}
+      slidesPerView={3}
       modules={[Autoplay, EffectCoverflow]}
-      autoplay={{ delay: 2000, disableOnInteraction: false }}
+      autoplay={{ delay: 1500, disableOnInteraction: false }}
       effect="coverflow"
       coverflowEffect={{
-        rotate: 10,
-        depth: 250,
+        rotate: 20,
+        depth: 500,
         modifier: 1,
-        slideShadows: true,
       }}
     >
-      {movies?.map((movie: any) => (
-        <SwiperSlide
-          key={movie.id}
-          className={popularMoviesSwiper.slideWrapper}
-        >
+      {movies?.map((movie) => (
+        <SwiperSlide key={movie.id} className={stylesSwiper.slideWrapper}>
           <Image
             src={posterImgUrl(movie.poster_path)}
             width={500}
             height={750}
             alt={movie.title}
             priority
-            layout="responsive"
           />
-          <div className={popularMoviesSwiper.additionalInfo}>
+
+          <div className={stylesSwiper.info}>
             <h3>{movie.title}</h3>
             <p>{movie.release_date}</p>
             <p>Rating: {movie.vote_average}</p>

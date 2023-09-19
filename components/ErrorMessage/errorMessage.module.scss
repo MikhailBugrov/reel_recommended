@@ -6,19 +6,19 @@
   max-width: 600px;
   margin: 0 auto;
   margin-top: 50px;
+}
 
-  button {
-    background-color: var(--color-background-paper);
-    color: var(--color-text-primary);
-    border: none;
-    padding: 8px 16px;
-    margin-right: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 15px;
-  }
+.buttonError {
+  background-color: var(--color-background-paper);
+  color: var(--color-text-primary);
+  border: none;
+  padding: 8px 16px;
+  margin-right: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
 
-  button:hover {
+  &:hover {
     background-color: var(--color-active);
   }
 }

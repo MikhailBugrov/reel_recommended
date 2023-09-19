@@ -7,31 +7,45 @@ import Pagination from "@/components/Pagination";
 import MovieCard from "@/components/MovieCard";
 import Loading from "@/components/Loading";
 import ErrorMessage from "@/components/ErrorMessage";
-import stylesPageWrapper from "@/components/StylesPageWrapper/stylesPageWrapper.module.scss";
+import stylesPage from "@/components/StylesPageWrapper/StylesPageWrapper.module.scss";
+import MovieFilter from "@/components/MovieFilter";
 
 const MoviesList = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [minVoteAverage, setMinVoteAverage] = useState("");
+  const [releaseYear, setReleaseYear] = useState<number | null>(null);
+  const [withGenres, setWithGenres] = useState("");
 
   const {
     data: movies,
     error,
     isLoading,
   } = useQuery({
-    queryKey: ["movies", currentPage],
-    queryFn: () => getMovies(currentPage),
+    queryKey: ["movies", currentPage, minVoteAverage, releaseYear, withGenres],
+    queryFn: () =>
+      getMovies(currentPage, minVoteAverage, releaseYear, withGenres),
   });
 
   if (error) return <ErrorMessage />;
 
   return (
-    <div className={stylesPageWrapper.pageWrapper}>
+    <div className={stylesPage.wrapper}>
       <h2>All Movies</h2>
+
+      <MovieFilter
+        minVoteAverage={minVoteAverage}
+        setMinVoteAverage={setMinVoteAverage}
+        releaseYear={releaseYear}
+        setReleaseYear={setReleaseYear}
+        withGenres={withGenres}
+        setWithGenres={setWithGenres}
+      />
 
       <Loading isLoading={isLoading}>
         {!movies?.results.length && (
-          <p className={stylesPageWrapper.noMoviesFound}>No movies found</p>
+          <p className={stylesPage.textBlock}>No movies found</p>
         )}
-        <div className={stylesPageWrapper.movieGrid}>
+        <div className={stylesPage.grid}>
           {movies?.results.map((movie: any) => (
             <MovieCard
               key={movie.id}

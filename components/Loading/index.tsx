@@ -1,4 +1,4 @@
-import loading from "./loading.module.scss";
+import stylesLoading from "./Loading.module.scss";
 
 interface IProps {
   isLoading: boolean;
@@ -8,8 +8,8 @@ interface IProps {
 const Loading = ({ isLoading, children }: IProps) => {
   if (isLoading) {
     return (
-      <div className={loading.loadingContainer}>
-        <div className={loading.loadingSpinner}></div>
+      <div className={stylesLoading.container}>
+        <div className={stylesLoading.spinner}></div>
       </div>
     );
   }

@@ -14,66 +14,74 @@
   &.hidden {
     transform: translateY(-100%);
   }
+  @media (max-width: 576px) {
+    padding: 17px 8px;
+  }
+}
 
-  &__link {
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: var(--font-size-large);
+.link {
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: var(--font-size-extra-large);
 
-    &:hover {
-      color: var(--color-active);
-    }
-
-    .star {
-      font-size: 22px;
-    }
+  &:hover {
+    color: var(--color-active);
   }
 
-  &__search {
+  @media (max-width: 576px) {
+    margin: 0 5px;
+    font-size: var(--font-size-large);
+  }
+}
+
+.iconsBookmark {
+  font-size: 26px;
+
+  @media (max-width: 576px) {
+    font-size: 21px;
+  }
+}
+
+.search {
+  flex-grow: 1;
+  margin: 0 10px;
+  display: flex;
+
+  input[type="text"] {
     flex-grow: 1;
-    margin: 0 10px;
-    display: flex;
+    background-color: var(--color-background-paper);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 5px;
+    font-size: var(--font-size-medium);
+    color: var(--color-text-primary);
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    font-weight: bold;
 
-    input[type="text"] {
-      flex-grow: 1;
-      background-color: var(--color-background-paper);
-      border: none;
-      border-radius: var(--border-radius);
-      padding: 5px;
-      font-size: var(--font-size-medium);
-      color: var(--color-text-primary);
-      outline: none;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      max-width: 300px;
-    }
-
-    .hiSearchCircle {
-      color: var(--color-primary-main);
-      font-size: 28px;
-      cursor: pointer;
-      transition: color 0.3s ease;
-      margin-left: -30px;
-
-      &:hover {
-        color: var(--color-active);
-      }
+    @media (max-width: 576px) {
+      max-width: 150px;
+      padding: 3px;
+      font-weight: normal;
     }
   }
 }
 
-@media (max-width: 576px) {
-  .header {
-    padding: 17px 8px;
+.iconSearch {
+  color: var(--color-primary-main);
+  font-size: 31px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-left: -30px;
+
+  &:hover {
+    color: var(--color-active);
   }
 
-  .header__link {
-    margin: 0 5px;
-  }
-
-  .header__search {
-    input[type="text"] {
-      max-width: 150px;
-    }
+  @media (max-width: 576px) {
+    font-size: 21px;
+    margin-left: -25px;
   }
 }

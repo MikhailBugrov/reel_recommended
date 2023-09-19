@@ -1,5 +1,7 @@
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
-import faBookmark from "./faBookmark.module.scss";
+
+import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
+import stylesBookmark from "./BookmarkIcon.module.scss";
 
 type BookmarkIconProps = {
   isFavorite: boolean;
@@ -8,11 +10,11 @@ type BookmarkIconProps = {
 
 const BookmarkIcon: React.FC<BookmarkIconProps> = ({ isFavorite, onClick }) => {
   return (
-    <div className={faBookmark.faBookmark} onClick={onClick}>
+    <div className={stylesBookmark.faBookmark} onClick={onClick}>
       {isFavorite ? (
-        <FaBookmark color="Gold" />
+        <BsFillBookmarkFill color="#ffd700" />
       ) : (
-        <FaRegBookmark color="white" />
+        <BsBookmark color="#e0e0e0" />
       )}
     </div>
   );

@@ -4,9 +4,9 @@ import { useQuery } from "@tanstack/react-query";
 import { getMovieId } from "@/services";
 import Loading from "@/components/Loading";
 import ErrorMessage from "@/components/ErrorMessage";
-import ActorsSwiper from "@/components/CastSwiper";
+import CastSwiper from "@/components/CastSwiper";
 import DetailedMovie from "@/components/DetailedMovie";
-import stylesPageWrapper from "@/components/StylesPageWrapper/stylesPageWrapper.module.scss";
+import stylesPage from "@/components/StylesPageWrapper/StylesPageWrapper.module.scss";
 
 type Props = {
   params: {
@@ -23,11 +23,11 @@ const Detailed = ({ params: { id } }: Props) => {
   if (error) return <ErrorMessage />;
 
   return (
-    <div className={stylesPageWrapper.pageWrapper}>
+    <div className={stylesPage.wrapper}>
       <Loading isLoading={isFetching}>
         <h2>{data?.movie.title}</h2>
         <DetailedMovie movie={data?.movie} />
-        <ActorsSwiper actors={data?.actor.cast} />
+        <CastSwiper actors={data?.actor.cast} />
       </Loading>
     </div>
   );

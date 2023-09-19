@@ -6,7 +6,7 @@ import { addMovie, removeMovie } from "@/redux/features/favorites";
 import { RootState } from "@/redux/store";
 import { isMovieFavorite } from "@/redux/features/favorites/selector";
 import BookmarkIcon from "@/components/BookmarkIcon";
-import movieCard from "./movieCard.module.scss";
+import stylesCard from "./MovieCard.module.scss";
 
 interface MovieCardProps {
   id: string;
@@ -38,22 +38,24 @@ const MovieCard: React.FC<MovieCardProps> = ({
   };
 
   return (
-    <div className={movieCard.movieCard}>
-      <div className={movieCard.favorite}>
+    <div className={stylesCard.card}>
+      <div className={stylesCard.favorite}>
         <BookmarkIcon isFavorite={isFavorite} onClick={handleToggleFavorite} />
       </div>
       <Link href={`/movies/${id}`}>
-        <Image
-          src={posterImgUrl(posterUrl)}
-          alt={`${title} poster`}
-          width={500}
-          height={750}
-          layout="responsive"
-        />
+        <div>
+          <Image
+            src={posterImgUrl(posterUrl)}
+            alt={`${title} poster`}
+            width={300}
+            height={450}
+            // priority
+          />
+        </div>
 
-        <h2>{title}</h2>
-        <p className={movieCard.info}>Release Date: {releaseDate}</p>
-        <p className={movieCard.info}>Rating: {rating}</p>
+        <h2 className={stylesCard.title}>{title}</h2>
+        <p className={stylesCard.info}>Release Date: {releaseDate}</p>
+        <p className={stylesCard.info}>Rating: {rating}</p>
       </Link>
     </div>
   );

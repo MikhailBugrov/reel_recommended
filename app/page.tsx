@@ -5,7 +5,7 @@ import { getMovies } from "@/services";
 import PopularMoviesSwiper from "@/components/PopularMoviesSwiper";
 import Loading from "@/components/Loading";
 import ErrorMessage from "@/components/ErrorMessage";
-import stylesPageWrapper from "@/components/StylesPageWrapper/stylesPageWrapper.module.scss";
+import stylesPage from "@/components/StylesPageWrapper/StylesPageWrapper.module.scss";
 
 const Home = () => {
   const {
@@ -20,7 +20,7 @@ const Home = () => {
   if (error) return <ErrorMessage />;
 
   return (
-    <div className={stylesPageWrapper.pageWrapper}>
+    <div className={stylesPage.wrapper}>
       <h2>Popular Movies</h2>
       <Loading isLoading={isLoading}>
         <PopularMoviesSwiper movies={movies?.results} />
