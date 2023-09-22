@@ -47,6 +47,21 @@
   }
 }
 
+.showFilters {
+  padding-top: 5px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1.5s ease;
+}
+
+.show {
+  max-height: 500px;
+
+  @media (max-width: 576px) {
+    max-height: 700px;
+  }
+}
+
 .icon {
   margin-right: 8px;
 }

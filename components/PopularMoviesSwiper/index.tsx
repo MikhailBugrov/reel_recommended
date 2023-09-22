@@ -25,12 +25,12 @@ const PopularMoviesSwiper: React.FC<PopularMoviesSwiperProps> = ({
   return (
     <Swiper
       className={stylesSwiper.swiperWrapper}
-      spaceBetween={-100}
+      spaceBetween={-50}
       initialSlide={1}
       loop={true}
       slidesPerView={3}
       modules={[Autoplay, EffectCoverflow]}
-      autoplay={{ delay: 1500, disableOnInteraction: false }}
+      autoplay={{ delay: 2500, disableOnInteraction: false }}
       effect="coverflow"
       coverflowEffect={{
         rotate: 20,

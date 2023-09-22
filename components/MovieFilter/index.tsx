@@ -27,6 +27,7 @@ const MovieFilter: React.FC<FiltersProps> = ({
   const toggleFilters = () => {
     setShowFilters(!showFilters);
   };
+
   const handleResetFilters = () => {
     setMinVoteAverage("");
     setReleaseYear(null);
@@ -39,7 +40,11 @@ const MovieFilter: React.FC<FiltersProps> = ({
         <FaFilter className={stylesFilter.icon} />
         Filters
       </div>
-      {showFilters && (
+      <div
+        className={`${stylesFilter.showFilters} ${
+          showFilters ? stylesFilter.show : ""
+        }`}
+      >
         <div className={stylesFilter.filtersContainer}>
           <div className={stylesFilter.filterSection}>
             <ReleaseYearFilter
@@ -75,7 +80,7 @@ const MovieFilter: React.FC<FiltersProps> = ({
             </button>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 };

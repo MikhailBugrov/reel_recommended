@@ -4,19 +4,14 @@ export async function getMovies(
   releaseYear?: number | null,
   withGenres?: string
 ) {
-  let apiUrl = `/api/movies?page=${page}`;
+  const params = new URLSearchParams({
+    page: String(page),
+    min_vote_average: minVoteAverage || "",
+    release_year: releaseYear ? String(releaseYear) : "",
+    with_genres: withGenres || "",
+  });
 
-  if (minVoteAverage) {
-    apiUrl += `&min_vote_average=${minVoteAverage}`;
-  }
-
-  if (releaseYear) {
-    apiUrl += `&release_year=${releaseYear}`;
-  }
-
-  if (withGenres) {
-    apiUrl += `&with_genres=${withGenres}`;
-  }
+  const apiUrl = `/api/movies?${params}`;
 
   const response = await fetch(apiUrl);
 
@@ -24,8 +19,7 @@ export async function getMovies(
     throw new Error("Unable to fetch movies.");
   }
 
-  const data = await response.json();
-  return data;
+  return response.json();
 }
 
 export async function getMovieId(id: string) {

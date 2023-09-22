@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getMovieId } from "@/services";
 import Loading from "@/components/Loading";
-import ErrorMessage from "@/components/ErrorMessage";
 import MovieCard from "@/components/MovieCard";
 
 interface MovieCardFavouritesProps {
@@ -9,11 +8,9 @@ interface MovieCardFavouritesProps {
 }
 
 const MovieCardFavourites = ({ id }: MovieCardFavouritesProps) => {
-  const { data, error, isFetching } = useQuery(["favourites", id], () =>
+  const { data, isFetching } = useQuery(["favourites", id], () =>
     getMovieId(id)
   );
-
-  if (error) return <ErrorMessage />;
 
   return (
     <Loading isLoading={isFetching}>

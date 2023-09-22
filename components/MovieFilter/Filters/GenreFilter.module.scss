@@ -15,6 +15,11 @@
   border: 1px solid var(--color-primary-main);
   font-size: var(--font-size-medium);
 
+  @media (max-width: 576px) {
+    font-size: var(--font-size-small);
+    min-width: 120px;
+  }
+
   input[type="checkbox"] {
     appearance: none;
     width: var(--font-size-medium);
