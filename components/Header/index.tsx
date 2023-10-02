@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { BsBookmarkStarFill } from "react-icons/bs";
+
 import SearchBar from "./SearchBar";
 import stylesHeader from "./Header.module.scss";
 
@@ -37,9 +38,9 @@ const Header = () => {
         Movies
       </Link>
       <SearchBar />
-      <Link href="/favorites" passHref className={stylesHeader.link}>
+      {/* <Link href="/favorites" passHref className={stylesHeader.link}>
         <BsBookmarkStarFill className={stylesHeader.iconsBookmark} />
-      </Link>
+      </Link> */}
     </header>
   );
 };
